@@ -8,8 +8,8 @@
             android:id="@+id/nav_features"
             android:title="Features" />
         <item
-            android:id="@+id/nav_event_list"
-            android:title="Event List" />
+            android:id="@+id/nav_images"
+            android:title="Images" />
         <item
             android:id="@+id/nav_member_list"
             android:title="Member List" />

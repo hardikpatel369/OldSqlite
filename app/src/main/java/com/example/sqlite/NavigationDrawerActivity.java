@@ -9,12 +9,10 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.example.sqlite.Features.FeaturesFragment;
+import com.example.sqlite.Images.ImagesFragment;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 
 public class NavigationDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -22,18 +20,8 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
-        // SEt Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        // Floating ActionButton
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -45,7 +33,7 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        Fragment fragment=new FeaturesFragment();
+        Fragment fragment = new ImagesFragment();
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.frame, fragment)
@@ -67,19 +55,19 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        Fragment fragment=null;
+        Fragment fragment = null;
         if (id == R.id.nav_features) {
-            fragment=new FeaturesFragment();
-        } else if (id == R.id.nav_event_list) {
-
+            fragment = new FeaturesFragment();
+        } else if (id == R.id.nav_images) {
+            fragment = new ImagesFragment();
         } else if (id == R.id.nav_member_list) {
 
-        }  else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 
         }
-        if(fragment!=null){
+        if (fragment != null) {
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.frame, fragment)
